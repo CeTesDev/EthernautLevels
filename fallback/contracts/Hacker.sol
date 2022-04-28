@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.5 <0.9.0;
+pragma solidity ^0.8.0;
 
 interface FallbackInterface {
   function contribute() external payable;
@@ -20,7 +20,7 @@ contract Hacker {
   }
 
   function attack(address _target) external payable onlyHacker {
-    require(msg.value > (0.001 ether), "Not enough ether to attack.");
+    require(msg.value >= (0.001 ether), "Not enough ether to attack.");
 
     uint256 contributionFee = 0.0005 ether;
 
