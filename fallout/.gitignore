@@ -1,3 +1,11 @@
-build
 node_modules
+dist
 package-lock.json
+
+#Hardhat files
+artifacts
+cache
+typechain
+deployments
+
+secrets.json

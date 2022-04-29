@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.5 <0.9.0;
+pragma solidity ^0.8.0;
 
 interface FalloutInterface {
   function Fal1out() external payable;
@@ -25,3 +25,4 @@ contract Hacker {
     falloutInstance.Fal1out();
   }
 }
+
