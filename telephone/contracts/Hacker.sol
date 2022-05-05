@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.5 <0.9.0;
+pragma solidity ^0.8.0;
 
 import "./Telephone.sol";
 
@@ -12,7 +12,7 @@ contract Hacker {
   }
 
   constructor() {
-    hacker = payable(msg.sender);
+    hacker = msg.sender;
   }
 
   function attack(address _target) public onlyHacker {
