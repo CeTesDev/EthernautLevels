@@ -7,7 +7,7 @@ import { Fallback } from "../typechain";
 
 chai.use(solidity);
 
-describe("DepoExchange", () => {
+describe("FallBack", () => {
   let owner: SignerWithAddress;
   let tester: SignerWithAddress;
 
