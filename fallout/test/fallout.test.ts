@@ -7,7 +7,7 @@ import { Fallout } from "../typechain";
 
 chai.use(solidity);
 
-describe("DepoExchange", () => {
+describe("Fallout", () => {
   let owner: SignerWithAddress;
   let tester: SignerWithAddress;
 

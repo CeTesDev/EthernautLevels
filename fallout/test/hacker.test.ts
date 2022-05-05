@@ -11,7 +11,7 @@ import { Fallout, Hacker } from "../typechain";
 
 chai.use(solidity);
 
-describe("DepoExchange", () => {
+describe("Hacker", () => {
   let owner: SignerWithAddress;
   let hacker: SignerWithAddress;
 
